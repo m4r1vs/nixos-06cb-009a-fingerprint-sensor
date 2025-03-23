@@ -29,14 +29,14 @@
 }:
 stdenv.mkDerivation {
   pname = "libfprint-2-tod1-vfs0090";
-  version = "0.8.6";
+  version = "0.8.7";
 
   src = fetchFromGitLab {
     domain = "gitlab.com";
     owner = "m4r1vs";
     repo = "libfprint-tod-vfs0090";
     rev = "master";
-    sha256 = "sha256-tQ+eL7KqLdqDeVXo/z3mq03ZTI8YZJGxBrmhwFq5CxA=";
+    sha256 = "sha256-ECHRJZHcSjI4f/FGhvrAXxLA9ysyf8Q3p0zDWJsfDnI=";
   };
 
   patches = [
