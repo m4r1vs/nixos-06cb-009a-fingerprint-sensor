@@ -33,10 +33,10 @@ stdenv.mkDerivation {
 
   src = fetchFromGitLab {
     domain = "gitlab.com";
-    owner = "bingch";
+    owner = "m4r1vs";
     repo = "libfprint-tod-vfs0090";
-    rev = "3a5e27bc4e5dbbb42b953958796830e87b82d843";
-    sha256 = "sha256-s6YPBeUYWBRUpVAsBvCKKTGQ8juMbPuJYWzXxKpcJkk=";
+    rev = "master";
+    sha256 = "sha256-tQ+eL7KqLdqDeVXo/z3mq03ZTI8YZJGxBrmhwFq5CxA=";
   };
 
   patches = [
