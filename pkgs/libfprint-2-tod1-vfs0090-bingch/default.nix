@@ -29,7 +29,7 @@
 }:
 stdenv.mkDerivation {
   pname = "libfprint-2-tod1-vfs0090";
-  version = "0.8.5";
+  version = "0.8.6";
 
   src = fetchFromGitLab {
     domain = "gitlab.com";
