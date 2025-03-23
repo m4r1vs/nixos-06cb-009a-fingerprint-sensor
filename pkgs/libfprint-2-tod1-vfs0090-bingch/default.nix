@@ -7,7 +7,26 @@
 # This file is mostly based on https://github.com/NixOS/nixpkgs/blob/nixos-22.11/pkgs/development/libraries/libfprint-2-tod1-vfs0090/default.nix#L36
 # with a few small modifications.
 #
-{ stdenv, lib, fetchFromGitLab, pkg-config, libfprint-tod, gusb, udev, nss, openssl, meson, pixman, ninja, glib, python3, python3Packages, python-validity, calib-data, autoPatchelfHook }:
+{
+  stdenv,
+  lib,
+  fetchFromGitLab,
+  pkg-config,
+  libfprint-tod,
+  gusb,
+  udev,
+  nss,
+  openssl,
+  meson,
+  pixman,
+  ninja,
+  glib,
+  python3,
+  python3Packages,
+  python-validity,
+  calib-data,
+  autoPatchelfHook,
+}:
 stdenv.mkDerivation {
   pname = "libfprint-2-tod1-vfs0090";
   version = "0.8.5";
@@ -37,8 +56,16 @@ stdenv.mkDerivation {
       --replace "calib_data_path" "'${calib-data}/share/calib-data.bin'"
   '';
 
-  nativeBuildInputs = [ pkg-config meson ninja python3 python-validity  autoPatchelfHook ];
-  buildInputs = [ libfprint-tod glib gusb udev nss openssl pixman ];
+  nativeBuildInputs = [pkg-config meson ninja python3 python-validity autoPatchelfHook];
+  buildInputs = [
+    (libfprint-tod.overrideAttrs (oldAttrs: {buildInputs = oldAttrs.buildInputs ++ [nss];}))
+    glib
+    gusb
+    udev
+    nss
+    openssl
+    pixman
+  ];
 
   installPhase = ''
     runHook preInstall
